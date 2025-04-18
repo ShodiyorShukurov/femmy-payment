@@ -1,0 +1,83 @@
+@import 'tailwindcss';
+
+.baloo-tamma-2 {
+  font-family: "Baloo Tamma 2", system-ui;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+} 
+
+html {
+  box-sizing: border-box;
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+  font-family: 'Baloo Tamma 2';
+  font-weight: 500;
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.container{
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  /* padding-left: 16px; */
+}
+
+
+.swiper-pagination-bullet {
+  background-color: #FFF1F3 !important;
+  opacity: 1 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #FA396D !important;
+}
+
+.swiper-pagination {
+  position: absolute;
+  bottom: -20px !important;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.custom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
