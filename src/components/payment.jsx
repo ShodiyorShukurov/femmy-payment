@@ -53,10 +53,10 @@ function Payment() {
           alt="Qiblah Logo"
           className="mx-auto mb-5 w-[100px]"
         />
-        <h1 className="text-xl mb-4">Lalu PREMIUM</h1>
+        <h1 className="text-[20px] mb-[15px]">Lalu PREMIUM</h1>
       </header>
       <main className="flex-1 px-4">
-        <div className="bg-white rounded-lg mb-4">
+        <div className="bg-white rounded-[10px] mb-4">
           {prices.map((price, index) => (
             <PriceCheckbox
               key={index}
@@ -77,7 +77,7 @@ function Payment() {
         </div>
         <div className="h-[50px]"></div>
       </main>
-      <footer className="sticky bottom-0 bg-white rounded-t-lg p-5">
+      {/* <footer className="sticky bottom-0 bg-white rounded-t-lg p-5">
         <a
           href={paymentHref}
           target="_blank"
@@ -89,7 +89,7 @@ function Payment() {
           </span>
           Obuna bo'lish
         </a>
-      </footer>
+      </footer> */}
     </div>
   );
 }

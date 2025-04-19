@@ -40,8 +40,8 @@ const PriceCheckbox = ({ price, index, isChecked, onChange, prices }) => {
     };
   
     return (
-      <div className="bg-white rounded-lg mb-2">
-        <div className="flex justify-between items-center p-2 border-b border-gray-100">
+      <ul className="bg-white rounded-lg mb-2">
+        <li className="flex justify-between items-center p-[10px] border-b border-gray-100 last:border-b-0">
           <div className="flex items-center gap-2">
             <div className="relative">
               <input
@@ -81,9 +81,9 @@ const PriceCheckbox = ({ price, index, isChecked, onChange, prices }) => {
               </p>
             </div>
           </div>
-        </div>
+        </li>
         <section
-          className={`flex flex-wrap justify-center gap-2 p-4 ${isChecked ? "block" : "hidden"}`}
+          className={`flex flex-wrap justify-center gap-2 py-[15px] ${isChecked ? "block" : "hidden"}`}
         >
           {["Payme", "Click", "Uzum"].map((method, radioIndex) => (
             <div
@@ -127,7 +127,7 @@ const PriceCheckbox = ({ price, index, isChecked, onChange, prices }) => {
             </div>
           ))}
         </section>
-      </div>
+      </ul>
     );
   };
   
