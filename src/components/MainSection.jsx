@@ -5,11 +5,18 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Autoplay, Pagination } from 'swiper/modules';
+import close from '../assets/close.svg';
 
 function MainSection() {
   return (
-    <div className="px-4 pt-[16px] flex-1 container">
-      <div className="flex items-center gap-1">
+    <div className="relative px-4 flex-1 container">
+      <button
+        className="absolute z-50 top-4 right-4 cursor-pointer"
+        onClick={() => window.close()}
+      >
+        <img src={close} alt="close" width={24} height={24} />
+      </button>
+      <div className="flex pt-[40px] items-center gap-1">
         <img src={diamond} alt="diamond" width={20} height={19} />
         <h1 className="text-[22px] leading-[28px] font-bold">Maqola nomi</h1>
       </div>
