@@ -10,12 +10,12 @@ import close from '../assets/close.svg';
 function MainSection() {
   return (
     <div className="relative px-4 flex-1 container">
-      <button
+      {/* <button
         className="absolute z-50 top-4 right-4 cursor-pointer"
         onClick={() => window.close()}
       >
         <img src={close} alt="close" width={24} height={24} />
-      </button>
+      </button> */}
       <div className="flex pt-[40px] items-center gap-1">
         <img src={diamond} alt="diamond" width={20} height={19} />
         <h1 className="text-[22px] leading-[28px] font-bold">Maqola nomi</h1>

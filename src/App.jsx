@@ -2,6 +2,8 @@ import Header from './components/Header';
 import MainSection from './components/MainSection';
 import FooterButton from './components/FooterButton';
 import Payment from './components/payment';
+import { Route, Routes } from 'react-router-dom';
+import Maqola from './Pages/Maqola';
 
 function App() {
   return (
@@ -9,7 +11,12 @@ function App() {
       {/* <Header /> */}
       {/* <MainSection />
       <FooterButton /> */}
-      <Payment/>
+      {/* <Payment/> */}
+
+      <Routes>
+        <Route path="/:id" element={<Maqola />} />
+        {/* <Route path='/' element= */}
+      </Routes>
     </div>
   );
 }
