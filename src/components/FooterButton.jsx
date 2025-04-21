@@ -1,7 +1,7 @@
 function FooterButton() {
   function closeWebView() {
     if (window.CloseWebViewChannel) {
-      CloseWebViewChannel.postMessage("premium");
+      CloseWebViewChannel.postMessage("close");
     } else {
       window.history.back(); 
     }

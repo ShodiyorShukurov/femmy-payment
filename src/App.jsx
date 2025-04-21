@@ -4,6 +4,7 @@ import FooterButton from './components/FooterButton';
 import Payment from './components/payment';
 import { Route, Routes } from 'react-router-dom';
 import Maqola from './Pages/Maqola';
+// import {Payment} from './components/payment';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
 
       <Routes>
         <Route path="/:id" element={<Maqola />} />
-        {/* <Route path='/' element= */}
+        <Route path='/payment' element={<Payment/>}/>
       </Routes>
     </div>
   );
