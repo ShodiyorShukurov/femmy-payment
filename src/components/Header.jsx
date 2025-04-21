@@ -7,11 +7,20 @@ import slider from '../assets/slider.jpg';
 import close from '../assets/close.svg';
 
 function Header() {
+
+  function closeWebView() {
+    if (window.CloseWebViewChannel) {
+      CloseWebViewChannel.postMessage("close");
+    } else {
+      window.history.back(); 
+    }
+  }
+
   return (
     <div className="relative rounded-t-[24px] overflow-hidden container">
       <button
         className="absolute z-50 top-4 right-4 cursor-pointer"
-        onClick={() => window.close()}
+        onClick={closeWebView}
       >
         <img src={close} alt="close" width={24} height={24} />
       </button>
