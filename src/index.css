@@ -76,6 +76,10 @@ img {
   justify-content: center;
 }
 
+.swiper-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic, .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic{
+  transform: none !important;
+}
+
 .custom {
   display: flex;
   justify-content: center;

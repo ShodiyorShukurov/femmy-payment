@@ -9,7 +9,7 @@ const Maqola = () => {
     <>
       <Header />
       <MainSection />
-      <DescriptionItem />
+      {/* <DescriptionItem /> */}
       <FooterButton />
     </>
   );

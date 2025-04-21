@@ -6,8 +6,18 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Autoplay, Pagination } from 'swiper/modules';
 import close from '../assets/close.svg';
+import { useState } from 'react';
 
 function MainSection() {
+
+  const [showMore, setShowMore] = useState(false);
+
+  const shortText =
+    "Ushbu maqola Faqat Premium foydalanuvchilar uchun to‘liq ochiladi.";
+  const fullText =
+    "Ushbu maqola Faqat Premium foydalanuvchilar uchun to‘liq ochiladi. So‘g‘liq‘ingiz haqida chuqurroq tushunchaga ega bo‘lish va ishonchli maslahatlarni olish uchun Premiumga o‘tish qo‘shiling.";
+
+
   return (
     <div className="relative px-4 flex-1 container">
       {/* <button
@@ -20,14 +30,19 @@ function MainSection() {
         <img src={diamond} alt="diamond" width={20} height={19} />
         <h1 className="text-[22px] leading-[28px] font-bold">Maqola nomi</h1>
       </div>
+      <div>
       <p className="mt-1 text-[#000000] text-[14px] font-medium leading-[20px]">
-        Ushbu maqola Faqat Premium foydalanuvchilar uchun to‘liq ochiladi.
-        So‘g‘liq‘ingiz haqida chuqurroq tushunchaga ega bo‘lish va ishonchli
-        maslahatlarni olish uchun Premiumga o‘tish qo‘shiling.
+        {showMore ? fullText : shortText}
       </p>
-      <p className="mt-1 text-[#EB2D69] font-semibold text-[14px] leading-[20px]">
-        Ko'proq
+
+      <p
+        className="mt-1 text-[#EB2D69] font-semibold text-[14px] leading-[20px] cursor-pointer"
+        onClick={() => setShowMore(!showMore)}
+      >
+        {showMore ? "Kamroq" : "Ko'proq"}
       </p>
+    </div>
+
 
       <div className="mt-6">
         <div className="flex items-center gap-2">
