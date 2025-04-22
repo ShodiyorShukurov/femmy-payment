@@ -7,12 +7,11 @@ import slider from '../assets/slider.jpg';
 import close from '../assets/close.svg';
 
 function Header() {
-
   function closeWebView() {
     if (window.CloseWebViewChannel) {
-      CloseWebViewChannel.postMessage("close");
+      CloseWebViewChannel.postMessage('close');
     } else {
-      window.history.back(); 
+      window.history.back();
     }
   }
 
@@ -26,19 +25,23 @@ function Header() {
       </button>
       <Swiper
         loop={true}
+        pagination={{
+          clickable: true,
+          dynamicBullets: true,
+          el: '.custom-pagination',
+        }}
         modules={[Pagination, Autoplay]}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
-        pagination={{ clickable: true }}
         className="mySwiper h-[210px]"
       >
         <SwiperSlide>
-          <img src={slider} alt="slider" className="object-cover" />
+          <img src={slider} alt="slider" className="object-cover h-[210px] w-full" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={slider} alt="slider" className="object-cover" />
+          <img src={slider} alt="slider" className="object-cover h-[210px] w-full" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={slider} alt="slider" className="object-cover" />
+          <img src={slider} alt="slider" className="object-cover h-[210px] w-full" />
         </SwiperSlide>
       </Swiper>
     </div>

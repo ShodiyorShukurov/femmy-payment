@@ -15,7 +15,7 @@ function App() {
       {/* <Payment/> */}
 
       <Routes>
-        <Route path="/:id" element={<Maqola />} />
+        <Route path="/" element={<Maqola />} />
         <Route path='/payment' element={<Payment/>}/>
       </Routes>
     </div>
