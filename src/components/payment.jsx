@@ -77,7 +77,7 @@ function Payment() {
         </div>
         <div className="h-[50px]"></div>
       </main>
-      <footer className="sticky bottom-0 bg-white rounded-t-lg p-5">
+      <footer className="sticky bottom-0 bg-white rounded-t-lg p-4">
         <a
           href={paymentHref}
           target="_blank"
