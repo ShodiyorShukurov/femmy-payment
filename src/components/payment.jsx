@@ -46,7 +46,7 @@ function Payment() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#fdf8e9]">
+    <div className="flex flex-col min-h-screen ">
       <header className="text-center">
         <img
           src="https://srvr.qiblah.app/public/images/1733915268163-image.png"
@@ -56,7 +56,7 @@ function Payment() {
         <h1 className="text-[20px] mb-[15px]">Lalu PREMIUM</h1>
       </header>
       <main className="flex-1 px-4">
-        <div className="bg-white rounded-[10px] mb-4">
+        <div className="bg-[#fdf8e9] rounded-[10px] mb-4">
           {prices.map((price, index) => (
             <PriceCheckbox
               key={index}
@@ -68,7 +68,7 @@ function Payment() {
             />
           ))}
         </div>
-        <div className="bg-white rounded-lg mb-4">
+        <div className="bg-[#fdf8e9] rounded-lg mb-4">
           {Array(5)
             .fill()
             .map((_, index) => (

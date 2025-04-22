@@ -40,7 +40,7 @@ const PriceCheckbox = ({ price, index, isChecked, onChange, prices }) => {
     };
   
     return (
-      <ul className="bg-white rounded-lg mb-2">
+      <ul className="bg-[#fdf8e9] rounded-lg mb-2">
         <li className="flex justify-between items-center p-[10px] border-b border-gray-100 last:border-b-0">
           <div className="flex items-center gap-2">
             <div className="relative">
@@ -88,7 +88,7 @@ const PriceCheckbox = ({ price, index, isChecked, onChange, prices }) => {
           {["Payme", "Click", "Uzum"].map((method, radioIndex) => (
             <div
               key={radioIndex}
-              className="w-[30%] flex items-center bg-[#fdf8e9] p-2 rounded-lg"
+              className="w-[30%] flex items-center bg-[#fff] p-2 rounded-lg"
             >
               <input
                 type="radio"
