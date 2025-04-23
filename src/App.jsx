@@ -4,6 +4,7 @@ import FooterButton from './components/FooterButton';
 import Payment from './components/payment';
 import { Route, Routes } from 'react-router-dom';
 import Maqola from './Pages/Maqola';
+import Advertisement from './components/Advertisement';
 // import {Payment} from './components/payment';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Maqola />} />
+        <Route path="/advertisement" element={<Advertisement />} />
         <Route path='/payment' element={<Payment/>}/>
       </Routes>
     </div>
