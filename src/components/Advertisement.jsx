@@ -6,7 +6,7 @@ import { useSearchParams } from 'react-router-dom';
 const Advertisement = () => {
   const [searchParams] = useSearchParams();
   const data = searchParams.get('name');
-  console.log(data)
+
 
   return (
     <section>
