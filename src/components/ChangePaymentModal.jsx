@@ -11,11 +11,15 @@ const ChangePaymentModal = ({ isOpen, setIsOpen, selectItem }) => {
 
   const handleSubmit = async () => {
     if (checkbox == '2') {
-      window.location.href = `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Femmy&additional_param3=232&amount=1000&additional_param4=umrbod`;
+      window.open(
+        'https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Femmy&additional_param3=232&amount=1000&additional_param4=umrbod',
+        '_blank'
+      );
     } else {
-      window.location.href = `https://checkout.paycom.uz/${btoa(
+      const url = btoa(
         'm=6697d19280d270b331826481;ac.user_id=2;ac.tarif=umrbod;ac.ilova=Femmy;a=100000'
-      )}`;
+      );
+      window.open(`https://checkout.paycom.uz/${url}`, '_blank');
     }
   };
 
