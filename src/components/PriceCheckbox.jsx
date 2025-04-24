@@ -99,7 +99,7 @@ const PriceCheckbox = ({ setSelectItem }) => {
         >
           <div>
             <h3 className="text-[17px] leading-[22px] font-[SF-Pro-Rounded-SemiBold] font-semibold text-[#3D3D3D]">
-              999 999 so’m so’m/ Umrbodlik Obuna
+              999 999 so’m/ Umrbodlik Obuna
             </h3>
             <p className="mt-[2px] text-[14px] leading-[14px] text-[#6D6D6D] font-[SF-Pro-Rounded-Regular]">
               <span className="line-through">2 000 000 so’m</span>{' '}
