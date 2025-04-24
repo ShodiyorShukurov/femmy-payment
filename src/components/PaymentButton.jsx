@@ -1,4 +1,4 @@
-function PaymentButton(setIsOpen) {
+function PaymentButton({ setIsOpen }) {
   return (
     <div className="sticky bottom-0  pt-6 pb-[max(16px, env(safe-area-inset-bottom))] container">
       <button

@@ -1,17 +1,22 @@
 import React from 'react';
 import payment_close from '../assets/payment_close.svg';
 import change from '../assets/change.svg';
+import payme from '../assets/payme.png';
+import click from '../assets/click.png';
+import uzum from '../assets/uzum.png';
 
-const ChangePaymentModal = (isOpen, setIsOpen) => {
+const ChangePaymentModal = ({ isOpen, setIsOpen, selectItem }) => {
   if (!isOpen) return null;
 
+  const [checkbox, setCheckBox] = React.useState('1');
+
   return (
-    <div className="fixed inset-0 z-50 w-full h-full pt-[40px]">
+    <div className="fixed inset-0 z-50 w-full h-full">
       <div
         onClick={() => setIsOpen(false)}
         className="absolute inset-0 bg-[#0000000A] backdrop-blur-[8px]"
       />
-      <div className="absolute modal w-full top-[100px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-[12px]  px-6 pb-6 pt-[72px] container">
+      <div className="absolute top-[45%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-[12px] pt-[72px] px-6 pb-6  container w-[90%]">
         <button
           className="absolute top-6 left-6 cursor-pointer"
           onClick={() => setIsOpen(false)}
@@ -35,18 +40,99 @@ const ChangePaymentModal = (isOpen, setIsOpen) => {
         >
           <div>
             <h3 className="text-[18px] leading-[22px] font-[SF-Pro-Rounded-SemiBold] font-semibold text-[#3D3D3D]">
-              18 999 so’m/ Oylik Obuna
+              {selectItem.title}
             </h3>
             <p className="mt-[2px] text-[14px] leading-[14px] text-[#6D6D6D] font-[SF-Pro-Rounded-Regular]">
-              <span className="line-through">20 000 so’m</span>
-              <span className="text-[#FF6C90] ml-1">20% Tejab qolish</span>
+              <span className="line-through">{selectItem.price}</span>
+              <span className="text-[#FF6C90] ml-1">{selectItem.sale}</span>
             </p>
           </div>
         </div>
-        <div className='flex gap-1 items-center mt-2'>
-            <img src={change} alt="" />
-            <p className='text-[16px] leading-[24px] text-[#FF6C90] font-[SF-Pro-Rounded-SemiBold]'>Tarifini o’zgartirish</p>
+
+        <div className="flex gap-1 items-center mt-2"  onClick={() => setIsOpen(false)}>
+          <img src={change} alt="" />
+          <p className="text-[16px] leading-[24px] text-[#FF6C90] font-[SF-Pro-Rounded-SemiBold]">
+            Tarifini o’zgartirish
+          </p>
         </div>
+
+        <ul className="mt-8 flex flex-col gap-4">
+          <li
+            className={`flex items-center justify-between px-4 py-3 border ${
+              checkbox == '1'
+                ? 'border-[#FF6C90] bg-[#FFF1F3]'
+                : 'border-[#D1D1D1]'
+            } rounded-[16px]`}
+            onClick={() => setCheckBox('1')}
+          >
+            <img className="w-[82px] h-[32px]" src={payme} alt="payme" />
+
+            <div
+              className={`w-[20px] h-[20px] rounded-full border ${
+                checkbox == '1' ? 'border-[#EB2D69]' : 'border-[#D1D1D1]'
+              } flex justify-center items-center`}
+            >
+              <div
+                className={`w-[8px] h-[8px] rounded-full ${
+                  checkbox == '1' ? 'bg-[#EB2D69] flex' : 'hidden'
+                }`}
+              ></div>
+            </div>
+          </li>
+
+          <li
+            className={`flex items-center justify-between px-4 py-3 border ${
+              checkbox == '2'
+                ? 'border-[#FF6C90] bg-[#FFF1F3]'
+                : 'border-[#D1D1D1]'
+            } rounded-[16px]`}
+            onClick={() => setCheckBox('2')}
+          >
+            <img className="w-[82px] h-[32px]" src={click} alt="click" />
+
+            <div
+              className={`w-[20px] h-[20px] rounded-full border ${
+                checkbox == '2' ? 'border-[#EB2D69]' : 'border-[#D1D1D1]'
+              } flex justify-center items-center`}
+            >
+              <div
+                className={`w-[8px] h-[8px] rounded-full ${
+                  checkbox == '2' ? 'bg-[#EB2D69] flex' : 'hidden'
+                }`}
+              ></div>
+            </div>
+          </li>
+
+          <li
+            className={`flex items-center justify-between px-4 py-3 border ${
+              checkbox == '3'
+                ? 'border-[#FF6C90] bg-[#FFF1F3]'
+                : 'border-[#D1D1D1]'
+            } rounded-[16px]`}
+            onClick={() => setCheckBox('3')}
+          >
+            <img className="w-[82px] h-[32px]" src={uzum} alt="uzum" />
+
+            <div
+              className={`w-[20px] h-[20px] rounded-full border ${
+                checkbox == '3' ? 'border-[#EB2D69]' : 'border-[#D1D1D1]'
+              } flex justify-center items-center`}
+            >
+              <div
+                className={`w-[8px] h-[8px] rounded-full ${
+                  checkbox == '3' ? 'bg-[#EB2D69] flex' : 'hidden'
+                }`}
+              ></div>
+            </div>
+          </li>
+        </ul>
+
+        <button
+          //   onClick={() => setIsOpen(true)}
+          className="w-full bg-[#EB2D69] text-white text-[16px] leading-[24px] py-4 rounded-[12px] mt-[32px]"
+        >
+          Davom etish
+        </button>
       </div>
     </div>
   );

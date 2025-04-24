@@ -1,7 +1,7 @@
 import React from 'react';
 import payment from '../assets/payment.png';
 import diamond from '../assets/diamond.svg';
-import payment_close from '../assets/payment_close.svg'
+import payment_close from '../assets/payment_close.svg';
 import tick from '../assets/tick.svg';
 import PriceCheckbox from './PriceCheckbox';
 import PaymentButton from './PaymentButton';
@@ -9,7 +9,7 @@ import usePayment from '../hooks/usePayment';
 import ChangePaymentModal from './ChangePaymentModal';
 
 const Payment = () => {
-  const { isOpen, setIsOpen } = usePayment();
+  const { isOpen, setIsOpen, selectItem, setSelectItem } = usePayment();
 
   return (
     <section className="pt-2 px-4">
@@ -18,9 +18,9 @@ const Payment = () => {
 
         <button
           className="absolute top-4 left-4 cursor-pointer"
-        //   onClick={onClose}
+            // onClick={onClose}
         >
-         <img src={payment_close} alt="" />
+          <img src={payment_close} alt="" />
         </button>
 
         <div className="flex items-center gap-1 justify-center mt-4">
@@ -66,10 +66,14 @@ const Payment = () => {
           </li>
         </ul>
 
-        <PriceCheckbox />
+        <PriceCheckbox setSelectItem={setSelectItem} />
 
         <PaymentButton setIsOpen={setIsOpen} />
-        <ChangePaymentModal isOpen={isOpen} setIsOpen={setIsOpen}/>
+        <ChangePaymentModal
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          selectItem={selectItem}
+        />
       </div>
     </section>
   );
