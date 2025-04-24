@@ -3,12 +3,21 @@ import payment_close from '../assets/payment_close.svg';
 import change from '../assets/change.svg';
 import payme from '../assets/payme.png';
 import click from '../assets/click.png';
-import uzum from '../assets/uzum.png';
 
 const ChangePaymentModal = ({ isOpen, setIsOpen, selectItem }) => {
   if (!isOpen) return null;
 
   const [checkbox, setCheckBox] = React.useState('1');
+
+  const handleSubmit = async () => {
+    if (checkbox == '2') {
+      window.location.href = `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Femmy&additional_param3=232&amount=1000&additional_param4=umrbod`;
+    } else {
+      window.location.href = `https://checkout.paycom.uz/${btoa(
+        'm=6697d19280d270b331826481;ac.user_id=2;ac.tarif=umrbod;ac.ilova=Femmy;a=100000'
+      )}`;
+    }
+  };
 
   return (
     <div className="fixed inset-0 z-50 w-full h-full">
@@ -49,7 +58,10 @@ const ChangePaymentModal = ({ isOpen, setIsOpen, selectItem }) => {
           </div>
         </div>
 
-        <div className="flex gap-1 items-center mt-2"  onClick={() => setIsOpen(false)}>
+        <div
+          className="flex gap-1 items-center mt-2"
+          onClick={() => setIsOpen(false)}
+        >
           <img src={change} alt="" />
           <p className="text-[16px] leading-[24px] text-[#FF6C90] font-[SF-Pro-Rounded-SemiBold]">
             Tarifini o’zgartirish
@@ -103,7 +115,7 @@ const ChangePaymentModal = ({ isOpen, setIsOpen, selectItem }) => {
             </div>
           </li>
 
-          <li
+          {/* <li
             className={`flex items-center justify-between px-4 py-3 border ${
               checkbox == '3'
                 ? 'border-[#FF6C90] bg-[#FFF1F3]'
@@ -124,11 +136,11 @@ const ChangePaymentModal = ({ isOpen, setIsOpen, selectItem }) => {
                 }`}
               ></div>
             </div>
-          </li>
+          </li> */}
         </ul>
 
         <button
-          //   onClick={() => setIsOpen(true)}
+          onClick={handleSubmit}
           className="w-full bg-[#EB2D69] text-white text-[16px] leading-[24px] py-4 rounded-[12px] mt-[32px]"
         >
           Davom etish

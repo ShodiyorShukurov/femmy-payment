@@ -11,6 +11,14 @@ import ChangePaymentModal from './ChangePaymentModal';
 const Payment = () => {
   const { isOpen, setIsOpen, selectItem, setSelectItem } = usePayment();
 
+  function closeWebView() {
+    if (window.CloseWebViewChannel) {
+      CloseWebViewChannel.postMessage('close');
+    } else {
+      window.history.back();
+    }
+  }
+
   return (
     <section className="pt-2 px-4">
       <div className="container">
@@ -18,7 +26,7 @@ const Payment = () => {
 
         <button
           className="absolute top-4 left-4 cursor-pointer"
-            // onClick={onClose}
+            onClick={closeWebView}
         >
           <img src={payment_close} alt="" />
         </button>
