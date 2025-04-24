@@ -25,7 +25,7 @@ const ChangePaymentModal = ({ isOpen, setIsOpen, selectItem }) => {
         onClick={() => setIsOpen(false)}
         className="absolute inset-0 bg-[#0000000A] backdrop-blur-[8px]"
       />
-      <div className="absolute top-[45%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-[12px] pt-[72px] px-6 pb-6  container w-[90%]">
+      <div className="absolute top-[45%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-[12px] pt-[72px] px-6 pb-6 w-full  max-w-[90%] mx-auto">
         <button
           className="absolute top-6 left-6 cursor-pointer"
           onClick={() => setIsOpen(false)}
