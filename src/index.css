@@ -1,5 +1,29 @@
 @import 'tailwindcss';
 
+@font-face {
+  font-family: 'SF-Pro-Rounded-Bold';
+  src: url('./assets/fonts/SF-Pro-Rounded-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF-Pro-Rounded-Semibold';
+  src: url('./assets/fonts/SF-Pro-Rounded-Semibold.otf') format('opentype');
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF-Pro-Rounded-Regular';
+  src: url('./assets/fonts/SF-Pro-Rounded-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
 .baloo-tamma-2 {
   font-family: "Baloo Tamma 2", system-ui;
   font-optical-sizing: auto;

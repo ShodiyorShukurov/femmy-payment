@@ -1,97 +1,78 @@
-import { useState, useEffect } from 'react';
+import React from 'react';
+import payment from '../assets/payment.png';
+import diamond from '../assets/diamond.svg';
+import payment_close from '../assets/payment_close.svg'
+import tick from '../assets/tick.svg';
 import PriceCheckbox from './PriceCheckbox';
-import DescriptionItem from './DescriptionItem';
+import PaymentButton from './PaymentButton';
+import usePayment from '../hooks/usePayment';
+import ChangePaymentModal from './ChangePaymentModal';
 
-const API_URL = 'https://srvr.qiblah.app/api/v1';
-
-function Payment() {
-  const [prices, setPrices] = useState([]);
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [paymentHref, setPaymentHref] = useState('');
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`${API_URL}/payment/prices`);
-        const json = await response.json();
-        setPrices(json.data);
-        setPaymentHref(
-          `https://checkout.paycom.uz/${btoa(
-            `m=6697d19280d270b331826481;ac.user_id=%user_id%;ac.tarif=${json.data[0].name.slice(
-              8
-            )};ac.ilova=Qiblah;a=${json.data[0].price.slice(0, -3) * 100}`
-          )}`
-        );
-      } catch (error) {
-        console.error(error.message);
-      }
-    };
-    fetchData();
-  }, []);
-
-  const handleCheckboxChange = (index, href = null) => {
-    setSelectedIndex(index);
-    if (href) {
-      setPaymentHref(href);
-    } else {
-      const defaultHref = `https://checkout.paycom.uz/${btoa(
-        `m=6697d19280d270b331826481;ac.user_id=%user_id%;ac.tarif=${prices[
-          index
-        ].name.slice(8)};ac.ilova=Qiblah;a=${
-          prices[index].price.slice(0, -3) * 100
-        }`
-      )}`;
-      setPaymentHref(defaultHref);
-    }
-  };
+const Payment = () => {
+  const { isOpen, setIsOpen } = usePayment();
 
   return (
-    <div className="flex flex-col min-h-screen ">
-      <header className="text-center">
-        <img
-          src="https://srvr.qiblah.app/public/images/1733915268163-image.png"
-          alt="Qiblah Logo"
-          className="mx-auto mb-5 w-[100px]"
-        />
-        <h1 className="text-[20px] mb-[15px]">Lalu PREMIUM</h1>
-      </header>
-      <main className="flex-1 px-4">
-        <div className="bg-[#fdf8e9] rounded-[10px] mb-4">
-          {prices.map((price, index) => (
-            <PriceCheckbox
-              key={index}
-              price={price}
-              index={index}
-              isChecked={selectedIndex === index}
-              onChange={handleCheckboxChange}
-              prices={prices}
-            />
-          ))}
-        </div>
-        <div className="bg-[#fdf8e9] rounded-lg mb-4">
-          {Array(5)
-            .fill()
-            .map((_, index) => (
-              <DescriptionItem key={index} />
-            ))}
-        </div>
-        <div className="h-[50px]"></div>
-      </main>
-      <footer className="sticky bottom-0 bg-white rounded-t-lg px-4 pt-4 pb-[max(16px,env(safe-area-inset-bottom))] ">
-        <a
-          href={paymentHref}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block w-full text-center bg-[#fe8c67] text-white rounded-lg py-3 text-xs"
+    <section className="pt-2 px-4">
+      <div className="container">
+        <img className="w-[110px] h-[125px] mx-auto" src={payment} alt="" />
+
+        <button
+          className="absolute top-4 left-4 cursor-pointer"
+        //   onClick={onClose}
         >
-          <span className="block font-bold text-sm">
-            {prices[selectedIndex]?.price || ''}
-          </span>
-          Obuna bo'lish
-        </a>
-      </footer>
-    </div>
+         <img src={payment_close} alt="" />
+        </button>
+
+        <div className="flex items-center gap-1 justify-center mt-4">
+          <img src={diamond} alt="diamond" className="h-[32px] w-[32px]" />
+          <h1 className="font-[SF-Pro-Rounded-Bold] text-[#3D3D3D] text-[28px] leading-[100%]">
+            Femmy Premium{' '}
+          </h1>
+        </div>
+
+        <ul className="font-[SF-Pro-Rounded-Bold] mt-4 flex flex-col items-start gap-3">
+          <li className="flex items-center justify-center gap-[5px]">
+            <img src={tick} alt="tick" className="h-[32px] w-[32px]" />
+            <div>
+              <h2 className="text-[#4F4F4F] text-[18px] leading-[20px]">
+                Ginekolog Ai{' '}
+              </h2>
+              <p className="text-[#6D6D6D] text-[16px] leading-[22px] font-[SF-Pro-Rounded-Regular] font-normal">
+                Ginekolog Ai bilan cheksiz chat imkoniyati
+              </p>
+            </div>
+          </li>
+          <li className="flex items-center justify-center gap-[5px]">
+            <img src={tick} alt="tick" className="h-[32px] w-[32px]" />
+            <div>
+              <h2 className="text-[#4F4F4F] text-[18px] leading-[20px]">
+                Premium Maqolalar
+              </h2>
+              <p className="text-[#6D6D6D] text-[16px] leading-[22px] font-[SF-Pro-Rounded-Regular] font-normal">
+                Sog‘lig‘ingiz uchun eng foydali maqolalar
+              </p>
+            </div>
+          </li>
+          <li className="flex items-center justify-center gap-[5px]">
+            <img src={tick} alt="tick" className="h-[32px] w-[32px]" />
+            <div>
+              <h2 className="text-[#4F4F4F] text-[18px] leading-[20px]">
+                Reklamalarsiz
+              </h2>
+              <p className="text-[#6D6D6D] text-[16px] leading-[22px] font-[SF-Pro-Rounded-Regular] font-normal">
+                Reklamalarsiz ilovadan foydalanish imkoniyati
+              </p>
+            </div>
+          </li>
+        </ul>
+
+        <PriceCheckbox />
+
+        <PaymentButton setIsOpen={setIsOpen} />
+        <ChangePaymentModal isOpen={isOpen} setIsOpen={setIsOpen}/>
+      </div>
+    </section>
   );
-}
+};
 
 export default Payment;
