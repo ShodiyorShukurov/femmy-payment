@@ -7,18 +7,6 @@ function PaymentButton({ setIsOpen }) {
       >
         Davom etish
       </button>
-
-      <ul className="flex justify-center items-center gap-6 mt-4 text-[#6D6D6D] text-[13px] leading-[18px]  font-[SF-Pro-Rounded-Regular]">
-        <li>
-          <a href="#">Terms</a>
-        </li>
-        <li>
-          <a href="#">Restore purchase</a>
-        </li>
-        <li>
-          <a href="#">Privacy</a>
-        </li>
-      </ul>
     </div>
   );
 }
