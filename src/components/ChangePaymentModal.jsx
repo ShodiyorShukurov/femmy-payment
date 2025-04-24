@@ -23,7 +23,7 @@ const ChangePaymentModal = ({ isOpen, setIsOpen, selectItem }) => {
     <div className="fixed inset-0 z-50 w-full h-full">
       <div
         onClick={() => setIsOpen(false)}
-        className="absolute inset-0 bg-[#0000000A] backdrop-blur-[8px]"
+        className="absolute inset-0 bg-[#00000052] backdrop-blur-[32px]"
       />
       <div className="absolute top-[45%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-[12px] pt-[72px] px-6 pb-6 w-full  max-w-[90%] mx-auto">
         <button
