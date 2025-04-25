@@ -25,11 +25,7 @@ const PriceCheckbox2 = ({ setSelectItem, paymentData, setIsOpen }) => {
         {paymentData.map((item, index) => (
           <li
             key={item?.id}
-            className={`flex items-center justify-between font-[SF-Pro-Rounded-Semibold] rounded-[16px] border ${
-              checkbox == index + 1
-                ? 'border-[#FF6C90] bg-[#FFF1F3]'
-                : 'border-[#D1D1D1]'
-            }  px-4 py-3`}
+            className={`flex items-center justify-between font-[SF-Pro-Rounded-Semibold] rounded-[16px] border border-[#D1D1D1]  px-4 py-3`}
             onClick={() => {
               setCheckBox(index + 1);
               setSelectItem({
@@ -39,7 +35,7 @@ const PriceCheckbox2 = ({ setSelectItem, paymentData, setIsOpen }) => {
                 sale: '20% Tejab qolish',
                 tarif: item.title_uz,
               });
-              setIsOpen(true)
+              setIsOpen(true);
             }}
           >
             <div>

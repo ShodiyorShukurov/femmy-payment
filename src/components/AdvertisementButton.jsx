@@ -13,10 +13,10 @@ const AdvertisementButton = ({ id }) => {
   }
 
   return (
-    <div className="sticky bottom-0 pt-4 pb-[max(16px,env(safe-area-inset-bottom))] container bg-[white]">
+    <div className="fixed bottom-0 left-0 right-0 pt-4 pb-[max(16px, env(safe-area-inset-bottom))] container bg-[white]">
       <button
         onClick={closeWebView}
-        className="w-full bg-[#EB2D69] text-white text-[16px] leading-[24px] py-4 rounded-[12px] font-bold mt-4"
+        className="w-full bg-[#EB2D69] text-white text-[16px] leading-[24px] py-4 rounded-[12px] font-bold"
       >
         Premiumga o‘tish
       </button>

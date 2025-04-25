@@ -10,7 +10,7 @@ const Advertisement = () => {
 
 
   return (
-    <section>
+    <section className='h-screen'>
       <div className="container p-4">
         <div className="flex items-center gap-1">
           <img src={diamond} alt="diamond" width={32} height={32} />
@@ -37,8 +37,8 @@ const Advertisement = () => {
           </div>
         </div>
 
-        <AdvertisementButton id={id}/>
       </div>
+        <AdvertisementButton id={id}/>
     </section>
   );
 };
