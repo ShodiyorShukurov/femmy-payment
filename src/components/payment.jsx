@@ -10,8 +10,9 @@ import ChangePaymentModal from './ChangePaymentModal';
 import { useParams } from 'react-router-dom';
 
 const Payment = () => {
-  const { isOpen, setIsOpen, selectItem, setSelectItem, paymentData } = usePayment();
-  const {id} = useParams()
+  const { isOpen, setIsOpen, selectItem, setSelectItem, paymentData } =
+    usePayment();
+  const { id } = useParams();
 
   function closeWebView() {
     if (window.CloseWebViewChannel) {
@@ -24,11 +25,15 @@ const Payment = () => {
   return (
     <section className="pt-2 px-4">
       <div className="container">
-        <img className="w-[110px] h-[125px] mx-auto" src={payment} alt="payment" />
+        <img
+          className="w-[110px] h-[125px] mx-auto"
+          src={payment}
+          alt="payment"
+        />
 
         <button
           className="absolute top-4 left-4 cursor-pointer"
-            onClick={closeWebView}
+          onClick={closeWebView}
         >
           <img src={payment_close} alt="" />
         </button>
@@ -76,9 +81,11 @@ const Payment = () => {
           </li>
         </ul>
 
-        <PriceCheckbox setSelectItem={setSelectItem} paymentData={paymentData}/>
-
-        <PaymentButton setIsOpen={setIsOpen} />
+        <PaymentButton
+          setIsOpen={setIsOpen}
+          setSelectItem={setSelectItem}
+          paymentData={paymentData}
+        />
         <ChangePaymentModal
           isOpen={isOpen}
           setIsOpen={setIsOpen}
