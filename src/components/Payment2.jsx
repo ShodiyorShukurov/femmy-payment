@@ -5,8 +5,7 @@ import { useParams } from 'react-router-dom';
 import PriceCheckbox2 from './PriceCheckbox2';
 
 const Payment2 = () => {
-  const {  selectItem, setSelectItem, paymentData } =
-    usePayment();
+  const { paymentData, selectItem1, setSelectItem1 } = usePayment();
   const { id } = useParams();
 
   function closeWebView() {
@@ -20,7 +19,9 @@ const Payment2 = () => {
   return (
     <section className="pt-2 px-4">
       <div className="container flex flex-col justify-center h-screen">
-        <h3 className="font-[SF-Pro-Rounded-Bold] text-[#3D3D3D] text-[28px] leading-[100%] text-center">To'lov turini tanlang</h3>
+        <h3 className="font-[SF-Pro-Rounded-Bold] text-[#3D3D3D] text-[28px] leading-[100%] text-center">
+          To'lov turini tanlang
+        </h3>
         <button
           className="absolute top-4 left-4 cursor-pointer"
           onClick={closeWebView}
@@ -29,10 +30,10 @@ const Payment2 = () => {
         </button>
 
         <PriceCheckbox2
-          setSelectItem={setSelectItem}
+          setSelectItem1={setSelectItem1}
           paymentData={paymentData}
           id={id}
-          selectItem={selectItem}
+          selectItem1={selectItem1}
         />
       </div>
     </section>

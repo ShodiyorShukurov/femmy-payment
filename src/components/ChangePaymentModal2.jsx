@@ -1,5 +1,4 @@
 import React from 'react';
-import payment_close from '../assets/payment_close.svg';
 
 import payme from '../assets/payme.png';
 import click from '../assets/click.png';
@@ -10,7 +9,7 @@ const ChangePaymentModal = () => {
   const { id } = useParams();
   const [searchParams] = useSearchParams();
   const price = searchParams.get('price');
-  const tarif = searchParams.get('id2');
+  const tarif = searchParams.get('tarif');
 
   const handleSubmit = async (idNum) => {
     if (idNum == 2) {

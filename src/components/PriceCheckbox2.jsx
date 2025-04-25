@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const PriceCheckbox2 = ({ setSelectItem, paymentData, selectItem, id }) => {
+const PriceCheckbox2 = ({ paymentData, id, selectItem1, setSelectItem1 }) => {
   const navigate = useNavigate();
 
   return (
@@ -12,7 +12,7 @@ const PriceCheckbox2 = ({ setSelectItem, paymentData, selectItem, id }) => {
             key={item?.id}
             className={`flex items-center justify-between font-[SF-Pro-Rounded-Semibold] rounded-[16px] border border-[#D1D1D1]  px-4 py-3`}
             onClick={() => {
-              setSelectItem({
+              setSelectItem1({
                 title: `${item?.price} so’m/ ${item.title_uz} Obuna`,
                 price2: item?.price,
                 price: '20 000 so’m',
@@ -20,7 +20,7 @@ const PriceCheckbox2 = ({ setSelectItem, paymentData, selectItem, id }) => {
                 tarif: item.title_uz,
               });
               navigate(
-                `/payment2/modal/${id}?price=${selectItem.price2}&tarif=${selectItem.price2}`
+                `/payment2/modal/${id}?price=${selectItem1.price2}&tarif=${selectItem1.tarif}`
               );
             }}
           >

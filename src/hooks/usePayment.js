@@ -4,6 +4,7 @@ const usePayment = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [paymentData, setPaymentData] = useState([]);
   const [selectItem, setSelectItem] = React.useState(null);
+  const [selectItem1, setSelectItem1] = React.useState(null);
 
   const getPayment = async () => {
     try {
@@ -43,7 +44,7 @@ const usePayment = () => {
     }
   }, [paymentData]);
 
-  return { isOpen, setIsOpen, selectItem, setSelectItem, paymentData };
+  return { isOpen, setIsOpen, selectItem, setSelectItem, paymentData, selectItem1, setSelectItem1 };
 };
 
 export default usePayment;
