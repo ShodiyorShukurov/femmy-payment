@@ -3,6 +3,7 @@ import Maqola from './Pages/Maqola';
 import Advertisement from './components/Advertisement';
 import Payment from './components/payment';
 import Payment2 from './components/Payment2';
+import ChangePaymentModal from './components/ChangePaymentModal2';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Route path="/advertisement" element={<Advertisement />} />
         <Route path='/payment/:id' element={<Payment/>}/>
         <Route path='/payment2/:id' element={<Payment2/>}/>
+        <Route path='/payment2/modal/:id' element={<ChangePaymentModal/>}/>
       </Routes>
     </div>
   );
