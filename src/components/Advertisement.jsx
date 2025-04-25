@@ -4,7 +4,7 @@ import tick from '../assets/tick.svg';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
 const Advertisement = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const id = searchParams.get('id');
 
@@ -12,7 +12,7 @@ const Advertisement = () => {
     if (!id) {
       CloseWebViewChannel.postMessage('close');
     } else {
-      navigate('/payment/' + id);
+      navigate('/payment2/' + id);
     }
   }
 
@@ -45,7 +45,7 @@ const Advertisement = () => {
         </div>
 
         <button
-            onClick={closeWebView}
+          onClick={closeWebView}
           className="w-full bg-[#EB2D69] text-white text-[16px] leading-[24px] py-4 rounded-[12px] font-bold mt-4"
         >
           Premiumga o‘tish

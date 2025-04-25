@@ -8,6 +8,7 @@ const ChangePaymentModal = ({ isOpen, setIsOpen, selectItem, id }) => {
   if (!isOpen) return null;
 
   const [checkbox, setCheckBox] = React.useState('1');
+  
   const handleSubmit = async () => {
     if (checkbox == '2') {
       window.open(
