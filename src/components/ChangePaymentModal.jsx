@@ -4,20 +4,21 @@ import change from '../assets/change.svg';
 import payme from '../assets/payme.png';
 import click from '../assets/click.png';
 
-const ChangePaymentModal = ({ isOpen, setIsOpen, selectItem }) => {
+const ChangePaymentModal = ({ isOpen, setIsOpen, selectItem, id }) => {
   if (!isOpen) return null;
 
   const [checkbox, setCheckBox] = React.useState('1');
-
   const handleSubmit = async () => {
     if (checkbox == '2') {
       window.open(
-        'https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Femmy&additional_param3=232&amount=1000&additional_param4=umrbod',
+        `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Femmy&additional_param3=${id}&amount=${selectItem.price2}&additional_param4=${selectItem.tarif}`,
         '_blank'
       );
     } else {
       const url = btoa(
-        'm=6697d19280d270b331826481;ac.user_id=2;ac.tarif=umrbod;ac.ilova=Femmy;a=100000'
+        `m=6697d19280d270b331826481;ac.user_id=${id};ac.tarif=${selectItem.tarif};ac.ilova=Femmy;a=${
+          selectItem.price2 * 100
+        }`
       );
       window.open(`https://checkout.paycom.uz/${url}`, '_blank');
     }

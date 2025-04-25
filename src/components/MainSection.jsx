@@ -1,48 +1,59 @@
 import diamond from '../assets/diamond.svg';
 import tick from '../assets/tick.svg';
-import user from '../assets/User Avatar.svg';
-import { Swiper, SwiperSlide } from 'swiper/react';
+// import user from '../assets/User Avatar.svg';
+// import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Autoplay, Pagination } from 'swiper/modules';
+// import { Autoplay, Pagination } from 'swiper/modules';
 import close from '../assets/close.svg';
 import { useState } from 'react';
 
-function MainSection() {
-
+function MainSection({ articleData }) {
   const [showMore, setShowMore] = useState(false);
 
-  const shortText =
-    "Ushbu maqola Faqat Premium foydalanuvchilar uchun to‘liq ochiladi.";
-  const fullText =
-    "Ushbu maqola Faqat Premium foydalanuvchilar uchun to‘liq ochiladi. So‘g‘liq‘ingiz haqida chuqurroq tushunchaga ega bo‘lish va ishonchli maslahatlarni olish uchun Premiumga o‘tish qo‘shiling.";
+  const shortText = articleData?.description?.slice(0, 200) + '...';
+  ('Ushbu maqola Faqat Premium foydalanuvchilar uchun to‘liq ochiladi.');
+  const fullText = articleData?.description;
 
+  function closeWebView() {
+    if (window.CloseWebViewChannel) {
+      CloseWebViewChannel.postMessage('close');
+    } else {
+      window.history.back();
+    }
+  }
 
   return (
     <div className="relative px-4 flex-1 container">
-      {/* <button
-        className="absolute z-50 top-4 right-4 cursor-pointer"
-        onClick={() => window.close()}
-      >
-        <img src={close} alt="close" width={24} height={24} />
-      </button> */}
+      {articleData?.image_url ? (
+        ''
+      ) : (
+        <button
+          className="absolute z-50 top-4 right-4 cursor-pointer"
+          onClick={closeWebView}
+        >
+          <img src={close} alt="close" width={24} height={24} />
+        </button>
+      )}
       <div className="flex pt-[40px] items-center gap-1">
         <img src={diamond} alt="diamond" width={20} height={19} />
-        <h1 className="text-[22px] leading-[28px] font-bold">Maqola nomi</h1>
+        <h1 className="text-[22px] leading-[28px] font-bold">
+          {articleData?.title}
+        </h1>
       </div>
       <div>
-      <p className="mt-1 text-[#000000] text-[14px] font-medium leading-[20px]">
-        {showMore ? fullText : shortText}
-      </p>
+        <p
+          className="mt-1 text-[#000000] text-[14px] font-medium leading-[20px]"
+          dangerouslySetInnerHTML={{ __html: showMore ? fullText : shortText }}
+        />
 
-      <p
-        className="mt-1 text-[#EB2D69] font-semibold text-[14px] leading-[20px] cursor-pointer"
-        onClick={() => setShowMore(!showMore)}
-      >
-        {showMore ? "Kamroq" : "Ko'proq"}
-      </p>
-    </div>
-
+        <p
+          className="mt-1 text-[#EB2D69] font-semibold text-[14px] leading-[20px] cursor-pointer"
+          onClick={() => setShowMore(!showMore)}
+        >
+          {showMore ? 'Kamroq' : "Ko'proq"}
+        </p>
+      </div>
 
       <div className="mt-6">
         <div className="flex items-center gap-2">
@@ -55,12 +66,12 @@ function MainSection() {
         </div>
       </div>
 
-      <div className="mt-6">
-        <h2 className="text-[16px] leading-[24px] font-bold text-center">
+      {/* <div className="mt-6"> */}
+      {/* <h2 className="text-[16px] leading-[24px] font-bold text-center">
           Obunachilar fikrlari
-        </h2>
+        </h2> */}
 
-        <Swiper
+      {/* <Swiper
           loop={true}
           paginationautoplay={{ delay: 3000, disableOnInteraction: false }}
           pagination={{
@@ -125,16 +136,12 @@ function MainSection() {
               </div>
             </div>
           </SwiperSlide>
-        </Swiper>
+        </Swiper> */}
 
-        <div className="mt-2 flex justify-center items-center">
+      {/* <div className="mt-2 flex justify-center items-center">
           <div className="custom-pagination3 custom"></div>
-        </div>
-      </div>
-
-      <p className="mt-2 text-[#000] font-medium text-[16px] leading-[24px] text-center">
-        Siz uchun eng dolzarb mavzuda chuqur tahlil – Premiumda ochiladi
-      </p>
+        </div> */}
+      {/* </div> */}
     </div>
   );
 }

@@ -10,7 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Maqola />} />
         <Route path="/advertisement" element={<Advertisement />} />
-        <Route path='/payment' element={<Payment/>}/>
+        <Route path='/payment/:id' element={<Payment/>}/>
       </Routes>
     </div>
   );

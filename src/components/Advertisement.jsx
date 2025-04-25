@@ -1,12 +1,20 @@
 import React from 'react';
 import diamond from '../assets/diamond.svg';
 import tick from '../assets/tick.svg';
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 const Advertisement = () => {
+  const navigate = useNavigate()
   const [searchParams] = useSearchParams();
-  const data = searchParams.get('name');
+  const id = searchParams.get('id');
 
+  function closeWebView() {
+    if (!id) {
+      CloseWebViewChannel.postMessage('close');
+    } else {
+      navigate('/payment/' + id);
+    }
+  }
 
   return (
     <section>
@@ -37,7 +45,7 @@ const Advertisement = () => {
         </div>
 
         <button
-          //   onClick={closeWebView}
+            onClick={closeWebView}
           className="w-full bg-[#EB2D69] text-white text-[16px] leading-[24px] py-4 rounded-[12px] font-bold mt-4"
         >
           Premiumga o‘tish

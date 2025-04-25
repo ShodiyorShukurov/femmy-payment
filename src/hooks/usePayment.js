@@ -1,18 +1,49 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const usePayment = () => {
   const [isOpen, setIsOpen] = React.useState(false);
-  const defaultItem = {}; 
-  const [selectItem, setSelectItem] = React.useState(
-    Object.keys(defaultItem).length > 0
-      ? defaultItem
-      : {
-          title: '199 999 so’m/ Yillik Obuna',
-          price: "240 000 so’m",
-          sale: '30% Tejab qolish',
-        }
-  );
-  return { isOpen, setIsOpen, selectItem, setSelectItem };
+  const [paymentData, setPaymentData] = useState([]);
+  const [selectItem, setSelectItem] = React.useState(null);
+
+  const getPayment = async () => {
+    try {
+      const response = await fetch('https://srvr.femmy.uz/api/v1/price', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      setPaymentData(data.data);
+    } catch (error) {
+      console.error('Error fetching article:', error);
+    }
+  };
+
+  useEffect(() => {
+    getPayment();
+  }, []);
+
+  useEffect(() => {
+    if (paymentData.length > 1) {
+      setSelectItem({
+        price2: paymentData[1]?.price,
+        title: `${paymentData[1]?.price ?? ''} so’m/ ${
+          paymentData[1]?.title_uz
+        } Obuna`,
+        price: '240 000 so’m',
+        sale: '30% Tejab qolish',
+        tarif: paymentData[1]?.title_uz,
+      });
+    }
+  }, [paymentData]);
+
+  return { isOpen, setIsOpen, selectItem, setSelectItem, paymentData };
 };
 
 export default usePayment;

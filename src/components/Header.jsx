@@ -3,10 +3,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Autoplay, Pagination } from 'swiper/modules';
-import slider from '../assets/slider.jpg';
 import close from '../assets/close.svg';
 
-function Header() {
+function Header({ articleData }) {
   function closeWebView() {
     if (window.CloseWebViewChannel) {
       CloseWebViewChannel.postMessage('close');
@@ -35,13 +34,11 @@ function Header() {
         className="mySwiper h-[210px]"
       >
         <SwiperSlide>
-          <img src={slider} alt="slider" className="object-cover h-[210px] w-full" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={slider} alt="slider" className="object-cover h-[210px] w-full" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={slider} alt="slider" className="object-cover h-[210px] w-full" />
+          <img
+            src={articleData?.image_url}
+            alt={articleData?.image_name}
+            className="object-cover h-[210px] w-full"
+          />
         </SwiperSlide>
       </Swiper>
     </div>
