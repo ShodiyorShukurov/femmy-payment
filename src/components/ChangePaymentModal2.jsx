@@ -10,7 +10,7 @@ const ChangePaymentModal = ({ isOpen, setIsOpen, selectItem, id }) => {
   const [checkbox, setCheckBox] = React.useState('1');
 
   const handleSubmit = async (id) => {
-    if (id==2) {
+    if (id == 2) {
       window.open(
         `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Femmy&additional_param3=${id}&amount=${selectItem.price2}&additional_param4=${selectItem.tarif}`,
         '_blank'
@@ -41,13 +41,8 @@ const ChangePaymentModal = ({ isOpen, setIsOpen, selectItem, id }) => {
 
         <ul className="mt-8 flex flex-col gap-4">
           <li
-            className={`flex items-center justify-between px-4 py-3 border ${
-              checkbox == '1'
-                ? 'border-[#FF6C90] bg-[#FFF1F3]'
-                : 'border-[#D1D1D1]'
-            } rounded-[16px]`}
+            className={`flex items-center justify-between px-4 py-3 border border-[#D1D1D1] rounded-[16px]`}
             onClick={() => {
-              setCheckBox('1');
               handleSubmit(1);
             }}
           >
@@ -55,13 +50,8 @@ const ChangePaymentModal = ({ isOpen, setIsOpen, selectItem, id }) => {
           </li>
 
           <li
-            className={`flex items-center justify-between px-4 py-3 border ${
-              checkbox == '2'
-                ? 'border-[#FF6C90] bg-[#FFF1F3]'
-                : 'border-[#D1D1D1]'
-            } rounded-[16px]`}
+            className={`flex items-center justify-between px-4 py-3 border  border-[#D1D1D1] rounded-[16px]`}
             onClick={() => {
-              setCheckBox('2');
               handleSubmit(2);
             }}
           >
