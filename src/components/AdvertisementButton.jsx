@@ -13,7 +13,7 @@ const AdvertisementButton = ({ id }) => {
   }
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 pt-4 pb-[max(16px,env(safe-area-inset-bottom))] container bg-[white] px-4">
+    <div className="fixed bottom-0 left-0 right-0 pt-4 pb-[max(8px,env(safe-area-inset-bottom))] container bg-[white] px-4">
       <button
         onClick={closeWebView}
         className="w-full bg-[#EB2D69] text-white text-[16px] leading-[24px] py-4 rounded-[12px] font-bold"

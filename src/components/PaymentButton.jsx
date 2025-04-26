@@ -2,7 +2,7 @@ import PriceCheckbox from "./PriceCheckbox";
 
 function PaymentButton({ setIsOpen, setSelectItem ,paymentData }) {
   return (
-    <div className="fixed bottom-0 left-0 right-0 pt-6 pb-[max(16px,env(safe-area-inset-bottom))] container px-4">
+    <div className="fixed bottom-0 left-0 right-0 pt-6 pb-[max(8px,env(safe-area-inset-bottom))] container px-4">
       <PriceCheckbox setSelectItem={setSelectItem} paymentData={paymentData} />
       <button
         onClick={() => setIsOpen(true)}
