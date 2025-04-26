@@ -13,9 +13,9 @@ function FooterButton({ id }) {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 px-4 pt-4 pb-[max(16px,env(safe-area-inset-bottom))] container bg-[white]">
-      <p className="mb-2 text-[#000] font-medium text-[16px] leading-[24px] text-center">
+      {/* <p className="mb-2 text-[#000] font-medium text-[16px] leading-[24px] text-center">
         Siz uchun eng dolzarb mavzuda chuqur tahlil – Premiumda ochiladi
-      </p>
+      </p> */}
       <button
         to="/payment"
         onClick={closeWebView}

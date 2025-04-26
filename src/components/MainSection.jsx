@@ -24,7 +24,11 @@ function MainSection({ articleData }) {
   }
 
   return (
-    <div className="relative px-4 flex-1 container">
+    <div
+      className={`relative px-4 flex-1  container ${
+        showMore ? ' min-h-screen pb-[144px]' : ''
+      } `}
+    >
       {articleData?.image_url ? (
         ''
       ) : (
@@ -55,7 +59,7 @@ function MainSection({ articleData }) {
         </p>
       </div>
 
-      <div className="mt-6">
+      <div className="my-6">
         <div className="flex items-center gap-2">
           <img src={tick} alt="tick" width={24} height={24} />
           <h2 className="text-[16px] leading-[24px] font-bold">Afzallik</h2>

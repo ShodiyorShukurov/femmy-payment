@@ -14,12 +14,12 @@ const Maqola = () => {
   const { articleData } = useArticle(id);
 
   return (
-    <>
+    <div className='h-screen'>
       {articleData?.image_url ? <Header articleData={articleData} /> : ''}
       <MainSection articleData={articleData} />
       {/* <DescriptionItem /> */}
       <FooterButton id={user_id} />
-    </>
+    </div>
   );
 };
 
