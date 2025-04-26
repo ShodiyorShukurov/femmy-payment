@@ -31,7 +31,7 @@ const ChangePaymentModal = () => {
     <div className="container px-4 flex flex-col justify-center h-screen">
       <button
         className="absolute top-6 left-6 cursor-pointer font-[SF-Pro-Rounded-Bold]"
-        onClick={() => navigate('/payment2/' + id)}
+        onClick={() => navigate('/ads2/' + id)}
       >
         Orqaga
       </button>

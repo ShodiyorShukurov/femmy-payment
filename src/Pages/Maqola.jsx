@@ -15,7 +15,7 @@ const Maqola = () => {
   const { articleData } = useArticle(id);
 
   return (
-    <div className='h-screen'>
+    <div>
       {articleData?.image_url ? <Header articleData={articleData} /> : ''}
       <MainSection articleData={articleData} />
       {/* <DescriptionItem /> */}

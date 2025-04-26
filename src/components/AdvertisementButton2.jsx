@@ -6,7 +6,7 @@ const AdvertisementButton2 = ({ id, nimadir }) => {
 
   function closeWebView() {
     if (id !== null && (nimadir == "false" || nimadir == false) ) {
-      navigate('/payment2/' + id);
+      navigate('/ads2/' + id);
     } else {
       CloseWebViewChannel.postMessage('close');
     }

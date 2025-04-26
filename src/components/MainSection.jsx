@@ -7,13 +7,17 @@ import 'swiper/css/pagination';
 // import { Autoplay, Pagination } from 'swiper/modules';
 import close from '../assets/close.svg';
 import { useState } from 'react';
+import parse from 'html-react-parser';
 
 function MainSection({ articleData }) {
   const [showMore, setShowMore] = useState(false);
 
-  const shortText = articleData?.description?.slice(0, 200) + '...';
-  ('Ushbu maqola Faqat Premium foydalanuvchilar uchun to‘liq ochiladi.');
-  const fullText = articleData?.description;
+  const shortText =
+  articleData?.html_code?.length >= 500
+    ? articleData.html_code.slice(0, 200) + '...'
+    : articleData?.html_code || '';
+
+  const fullText = articleData?.html_code || '';
 
   function closeWebView() {
     if (window.CloseWebViewChannel) {
@@ -26,7 +30,7 @@ function MainSection({ articleData }) {
   return (
     <div
       className={`relative px-4 flex-1  container ${
-        showMore ? ' min-h-screen pb-[144px]' : ''
+        showMore || articleData?.html_code?.length < 500 ? ' min-h-screen pb-[144px]' : ''
       } `}
     >
       {articleData?.image_url ? (
@@ -46,28 +50,30 @@ function MainSection({ articleData }) {
         </h1>
       </div>
       <div>
-        <p
-          className="mt-1 text-[#000000] text-[14px] font-medium leading-[20px]"
-          dangerouslySetInnerHTML={{ __html: showMore ? fullText : shortText }}
-        />
 
-        <p
-          className="mt-1 text-[#EB2D69] font-semibold text-[14px] leading-[20px] cursor-pointer"
-          onClick={() => setShowMore(!showMore)}
-        >
-          {showMore ? 'Kamroq' : "Ko'proq"}
-        </p>
+        <div className="mt-1 text-[#000000] text-[14px] font-medium leading-[20px] prose max-w-none">
+          {parse(showMore ? fullText : shortText)}
+        </div>
+
+        {shortText?.length >= 500 ? (
+          <p
+            className="mt-1 text-[#EB2D69] font-semibold text-[14px] leading-[20px] cursor-pointer"
+            onClick={() => setShowMore(!showMore)}
+          >
+            {showMore ? 'Kamroq' : "Ko'proq"}
+          </p>
+        ) : (
+          ''
+        )}
       </div>
 
-      <div className="my-6">
-        <div className="flex items-center gap-2">
-          <img src={tick} alt="tick" width={24} height={24} />
-          <h2 className="text-[16px] leading-[24px] font-bold">Afzallik</h2>
-        </div>
-        <div className="flex items-center gap-2 mt-2">
-          <img src={tick} alt="tick" width={24} height={24} />
-          <h2 className="text-[16px] leading-[24px] font-bold">Afzallik</h2>
-        </div>
+      <div className="my-6 space-y-1">
+        {articleData?.video_url?.split(', ')?.map((item, index) => (
+          <div className="flex items-center gap-2" key={index}>
+            <img src={tick} alt="tick" width={24} height={24} />
+            <h2 className="text-[16px] leading-[24px] font-bold">{item}</h2>
+          </div>
+        ))}
       </div>
 
       {/* <div className="mt-6"> */}

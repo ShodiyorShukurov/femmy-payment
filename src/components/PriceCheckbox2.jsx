@@ -20,7 +20,7 @@ const PriceCheckbox2 = ({ paymentData, id, selectItem1, setSelectItem1 }) => {
                 tarif: item.title_uz,
               });
               navigate(
-                `/payment2/modal/${id}?price=${selectItem1?.price2}&tarif=${selectItem1?.tarif}`
+                `/ads2/modal/${id}?price=${selectItem1?.price2}&tarif=${selectItem1?.tarif}`
               );
             }}
           >

@@ -14,9 +14,9 @@ function App() {
         <Route path="/" element={<Maqola />} />
         <Route path="/advertisement" element={<Advertisement />} />
         <Route path="/advertisement2" element={<Advertisement2 />} />
-        <Route path='/payment/:id' element={<Payment/>}/>
-        <Route path='/payment2/:id' element={<Payment2/>}/>
-        <Route path='/payment2/modal/:id' element={<ChangePaymentModal/>}/>
+        <Route path='/ads/:id' element={<Payment/>}/>
+        <Route path='/ads2/:id' element={<Payment2/>}/>
+        <Route path='/ads2/modal/:id' element={<ChangePaymentModal/>}/>
       </Routes>
     </div>
   );
