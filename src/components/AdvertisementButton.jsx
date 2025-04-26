@@ -5,10 +5,10 @@ const AdvertisementButton = ({ id, nimadir }) => {
   const navigate = useNavigate();
 
   function closeWebView() {
-    if (!id || id == null || nimadir || nimadir == null) {
-      CloseWebViewChannel.postMessage('close');
-    } else {
+    if (id !== null && (nimadir == "false" || nimadir == false) ) {
       navigate('/payment2/' + id);
+    } else {
+      CloseWebViewChannel.postMessage('close');
     }
   }
 
