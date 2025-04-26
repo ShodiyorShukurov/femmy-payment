@@ -7,6 +7,7 @@ import AdvertisementButton from './AdvertisementButton';
 const Advertisement = () => {
   const [searchParams] = useSearchParams();
   const id = searchParams.get('id');
+  const nimadir= searchParams.get('nimadir')
 
 
   return (
@@ -38,7 +39,7 @@ const Advertisement = () => {
         </div>
 
       </div>
-        <AdvertisementButton id={id}/>
+        <AdvertisementButton id={id} nimadir={nimadir}/>
     </section>
   );
 };

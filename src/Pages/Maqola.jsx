@@ -10,6 +10,7 @@ const Maqola = () => {
   const [searchParams] = useSearchParams();
   const id = searchParams.get('id1');
   const user_id = searchParams.get('id2');
+  const nimadir = searchParams.get('nimadir')
 
   const { articleData } = useArticle(id);
 
@@ -18,7 +19,7 @@ const Maqola = () => {
       {articleData?.image_url ? <Header articleData={articleData} /> : ''}
       <MainSection articleData={articleData} />
       {/* <DescriptionItem /> */}
-      <FooterButton id={user_id} />
+      <FooterButton id={user_id} nimadir={nimadir}/>
     </div>
   );
 };

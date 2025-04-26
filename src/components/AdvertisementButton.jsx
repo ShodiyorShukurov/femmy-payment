@@ -1,11 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const AdvertisementButton = ({ id }) => {
+const AdvertisementButton = ({ id, nimadir }) => {
   const navigate = useNavigate();
 
   function closeWebView() {
-    if (!id) {
+    if (!id || id == null || nimadir || nimadir == null) {
       CloseWebViewChannel.postMessage('close');
     } else {
       navigate('/payment2/' + id);

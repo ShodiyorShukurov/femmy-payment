@@ -1,15 +1,16 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 
-function FooterButton({ id }) {
+function FooterButton({ id, nimadir }) {
   const navigate = useNavigate();
 
   function closeWebView() {
-    if (!id) {
+    if (!id || id == null || nimadir || nimadir == null) {
       CloseWebViewChannel.postMessage('close');
     } else {
       navigate('/payment/' + id);
     }
   }
+
 
   return (
     <div className="fixed bottom-0 left-0 right-0 px-4 pt-4 pb-[max(8px,env(safe-area-inset-bottom))] container bg-[white]">
