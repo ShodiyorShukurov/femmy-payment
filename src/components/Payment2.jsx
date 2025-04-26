@@ -20,7 +20,7 @@ const Payment2 = () => {
     <section className="pt-2 px-4">
       <div className="container flex flex-col justify-center h-screen">
         <h3 className="font-[SF-Pro-Rounded-Bold] text-[#3D3D3D] text-[28px] leading-[100%] text-center">
-          To'lov turini tanlang
+          Tarif turini tanlang
         </h3>
         <button
           className="absolute top-4 left-4 cursor-pointer"

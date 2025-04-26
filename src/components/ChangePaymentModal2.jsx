@@ -30,11 +30,13 @@ const ChangePaymentModal = () => {
   return (
     <div className="container px-4 flex flex-col justify-center h-screen">
       <button
-        className="absolute top-6 left-6 cursor-pointer"
+        className="absolute top-6 left-6 cursor-pointer font-[SF-Pro-Rounded-Bold]"
         onClick={() => navigate('/payment2/' + id)}
       >
         Orqaga
       </button>
+
+      <h2 className='font-[SF-Pro-Rounded-Bold] text-[#3D3D3D] text-[28px] leading-[100%] text-center'>To'lov turini tanlang</h2>
 
       <ul className="mt-8 flex flex-col gap-4">
         <li

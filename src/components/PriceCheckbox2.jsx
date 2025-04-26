@@ -7,7 +7,7 @@ const PriceCheckbox2 = ({ paymentData, id, selectItem1, setSelectItem1 }) => {
   return (
     <section className="pt-[27px]">
       <ul className="flex flex-col gap-4">
-        {paymentData.map((item, index) => (
+        {paymentData.map((item) => (
           <li
             key={item?.id}
             className={`flex items-center justify-between font-[SF-Pro-Rounded-Semibold] rounded-[16px] border border-[#D1D1D1]  px-4 py-3`}
@@ -20,7 +20,7 @@ const PriceCheckbox2 = ({ paymentData, id, selectItem1, setSelectItem1 }) => {
                 tarif: item.title_uz,
               });
               navigate(
-                `/payment2/modal/${id}?price=${selectItem1.price2}&tarif=${selectItem1.tarif}`
+                `/payment2/modal/${id}?price=${selectItem1?.price2}&tarif=${selectItem1?.tarif}`
               );
             }}
           >
