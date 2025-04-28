@@ -2,7 +2,6 @@ import React from 'react';
 import diamond from '../assets/diamond.svg';
 import tick from '../assets/tick.svg';
 import {  useSearchParams } from 'react-router-dom';
-import AdvertisementButton from './AdvertisementButton';
 import AdvertisementButton2 from './AdvertisementButton2';
 
 const Advertisement2 = () => {

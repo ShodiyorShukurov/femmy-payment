@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const PriceCheckbox2 = ({ paymentData, id, selectItem1, setSelectItem1 }) => {
   const navigate = useNavigate();
-
+console.log(selectItem1)
   return (
     <section className="pt-[27px]">
       <ul className="flex flex-col gap-4">
@@ -20,7 +20,7 @@ const PriceCheckbox2 = ({ paymentData, id, selectItem1, setSelectItem1 }) => {
                 tarif: item.title_uz,
               });
               navigate(
-                `/ads2/modal/${id}?price=${selectItem1?.price2}&tarif=${selectItem1?.tarif}`
+                `/ads2/modal/${id}?price=${item.price}&tarif=${item.title_uz}`
               );
             }}
           >
