@@ -5,6 +5,7 @@ import Payment from './components/payment';
 import Payment2 from './components/Payment2';
 import ChangePaymentModal from './components/ChangePaymentModal2';
 import Advertisement2 from './components/Advertisement2';
+import Payment3 from './components/payment3';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path='/ads/:id' element={<Payment/>}/>
         <Route path='/ads2/:id' element={<Payment2/>}/>
         <Route path='/ads2/modal/:id' element={<ChangePaymentModal/>}/>
+        <Route path='/ads3/:id' element={<Payment3/>}/>
       </Routes>
     </div>
   );

@@ -7,8 +7,9 @@ import PaymentButton from './PaymentButton';
 import usePayment from '../hooks/usePayment';
 import ChangePaymentModal from './ChangePaymentModal';
 import { useParams } from 'react-router-dom';
+import PaymentButton3 from './paymentButton3';
 
-const Payment = () => {
+const Payment3 = () => {
   const { isOpen, setIsOpen, selectItem, setSelectItem, paymentData } =
     usePayment();
   const { id } = useParams();
@@ -80,7 +81,7 @@ const Payment = () => {
           </li>
         </ul>
 
-        <PaymentButton
+        <PaymentButton3
           setIsOpen={setIsOpen}
           setSelectItem={setSelectItem}
           paymentData={paymentData}
@@ -98,4 +99,4 @@ const Payment = () => {
   );
 };
 
-export default Payment;
+export default Payment3;
