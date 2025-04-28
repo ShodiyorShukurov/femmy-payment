@@ -22,7 +22,7 @@ const Payment = () => {
   }
 
   return (
-    <section className="pt-2 px-4">
+    <section className="pt-2 px-4 min-h-screen">
       <div className="container">
         <img
           className="w-[110px] h-[125px] mx-auto"
@@ -31,7 +31,7 @@ const Payment = () => {
         />
 
         <button
-          className="absolute top-4 left-4 cursor-pointer"
+          className="fixed top-4 left-4 cursor-pointer"
           onClick={closeWebView}
         >
           <img src={payment_close} alt="" />
@@ -44,7 +44,7 @@ const Payment = () => {
           </h1>
         </div>
 
-        <ul className="font-[SF-Pro-Rounded-Bold] mt-4 flex flex-col items-start gap-3">
+        <ul className="font-[SF-Pro-Rounded-Bold] mt-4 flex flex-col items-start gap-3 h-screen">
           <li className="flex items-center justify-center gap-[5px]">
             <img src={tick} alt="tick" className="h-[32px] w-[32px]" />
             <div>
