@@ -10,19 +10,19 @@ const PriceCheckbox = ({
 }) => {
   const [checkbox, setCheckBox] = React.useState('2');
 
-
   return (
     <section className="">
       <ul className="grid grid-cols-2 gap-4 mb-3">
-        <li
+
+      <li
           className={`flex items-center justify-between px-4 py-3 border ${
             checkbox1 == '1'
-              ? 'border-[#FF6C90] bg-[#FFF1F3]'
+              ? 'border-[#D1D1D1]'
               : 'border-[#D1D1D1]'
           } rounded-[16px]`}
           onClick={() => setCheckBox1('1')}
         >
-          <img className="w-[82px] h-[32px]" src={payme} alt="payme" />
+          <img className="w-[82px] h-[32px]" src={click} alt="click" />
 
           <div
             className={`w-[20px] h-[20px] rounded-full border ${
@@ -40,12 +40,12 @@ const PriceCheckbox = ({
         <li
           className={`flex items-center justify-between px-4 py-3 border ${
             checkbox1 == '2'
-              ? 'border-[#FF6C90] bg-[#FFF1F3]'
+              ? 'border-[#D1D1D1]'
               : 'border-[#D1D1D1]'
           } rounded-[16px]`}
           onClick={() => setCheckBox1('2')}
         >
-          <img className="w-[82px] h-[32px]" src={click} alt="click" />
+          <img className="w-[82px] h-[32px]" src={payme} alt="payme" />
 
           <div
             className={`w-[20px] h-[20px] rounded-full border ${
@@ -99,15 +99,17 @@ const PriceCheckbox = ({
                   item.title_uz + ' Obuna'
                 )}
               </h3>
-              <p className="mt-[2px] text-[14px] leading-[14px] text-[#6D6D6D] font-[SF-Pro-Rounded-Regular]">
-                {item.period >= 365 && item.period <= 370
-                  ? Math.floor(item.price / 12).toLocaleString('en-US') +
-                    ' / oyiga; ' +
-                    'yiliga ' +
-                    Number(item.price).toLocaleString('en-US')
-                  : item.period >= 25 && item.period <= 35
-                  ? Number(item.price).toLocaleString('en-US') + ' / oyiga'
-                  : Number(item.price).toLocaleString('en-US') + ' / Bir marta'}
+              <p className="mt-[2px] text-[14px] leading-[14px] text-[#6D6D6D] font-sm font-[SF-Pro-Rounded-Regular]">
+                {item.period >= 365 && item.period <= 370 ? (
+                  <div className="flex items-center">
+                    <p className='mr-3'>{Math.floor(item.price / 12).toLocaleString('en-US')} / oyiga; </p>
+                    <p>yiliga {Number(item.price).toLocaleString('en-US')}</p>
+                  </div>
+                ) : item.period >= 25 && item.period <= 35 ? (
+                  Number(item.price).toLocaleString('en-US') + ' / oyiga'
+                ) : (
+                  Number(item.price).toLocaleString('en-US') + ' / Bir marta'
+                )}
               </p>
             </div>
 

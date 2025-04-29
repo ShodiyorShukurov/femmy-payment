@@ -41,14 +41,19 @@ const PriceCheckbox2 = ({ paymentData, id, selectItem1, setSelectItem1 }) => {
                 )}
               </h3>
               <p className="mt-[2px] text-[14px] leading-[14px] text-[#6D6D6D] font-[SF-Pro-Rounded-Regular]">
-                {item.period >= 365 && item.period <= 370
-                  ? Math.floor(item.price / 12).toLocaleString('en-US') +
-                    ' / oyiga; ' +
-                    'yiliga ' +
-                    Number(item.price).toLocaleString('en-US')
-                  : item.period >= 25 && item.period <= 35
-                  ? Number(item.price).toLocaleString('en-US') + ' / oyiga'
-                  : Number(item.price).toLocaleString('en-US') + ' / Bir marta'}
+                {item.period >= 365 && item.period <= 370 ? (
+                  <div className="flex items-center">
+                    <p className="mr-3">
+                      {Math.floor(item.price / 12).toLocaleString('en-US')} /
+                      oyiga;{' '}
+                    </p>
+                    <p>yiliga {Number(item.price).toLocaleString('en-US')}</p>
+                  </div>
+                ) : item.period >= 25 && item.period <= 35 ? (
+                  Number(item.price).toLocaleString('en-US') + ' / oyiga'
+                ) : (
+                  Number(item.price).toLocaleString('en-US') + ' / Bir marta'
+                )}
               </p>
             </div>
           </li>
