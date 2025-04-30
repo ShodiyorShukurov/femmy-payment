@@ -55,7 +55,7 @@ function MainSection({ articleData }) {
           {parse(showMore ? fullText : shortText)}
         </div>
 
-        {shortText?.length >= 500 ? (
+        { articleData?.html_code?.length >= 500 ? (
           <p
             className="mt-1 text-[#EB2D69] font-semibold text-[14px] leading-[20px] cursor-pointer"
             onClick={() => setShowMore(!showMore)}
