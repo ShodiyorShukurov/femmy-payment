@@ -5,7 +5,7 @@ function PaymentButton({ setSelectItem, paymentData, id, selectItem }) {
   const [checkbox1, setCheckBox1] = React.useState('1');
 
   const handleSubmit = async () => {
-    if (checkbox1 == '2') {
+    if (checkbox1 == '1') {
       window.open(
         `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Femmy&additional_param3=${id}&amount=${selectItem.price2}&additional_param4=${selectItem.tarif}`,
         '_blank'
